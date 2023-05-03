@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: rgb(175, 15, 15);
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .mb-3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      
+      .form-label {
+        text-align: center;
+        font-weight: bold;
+      }
+      
+      .form-control {
+        width: 300px;
+        max-width: 100%;
+      }
+      
+      .btn {
+        margin-top: 1rem;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  </head>
+  <body>
+    <div class="login">
+      <h1>Credit Default Predictor</h1>
+      <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1></h1>
+        <div class="mb-3">
+          <label class="form-label">Gender</label>
+          <select class="form-control" name="sex" placeholder="Enter your Gender" required>
+            <option class="placeholder" selected disabled value="">Select your Gender</option>
+            <option value=1> Male </option>
+            <option value=2> Female </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Education</label>
+          <select class="form-control" name="education" placeholder="Enter Education" required>
+            <option class="placeholder" selected disabled value="">Enter Education</option>
+            <option value=1> Graduate School </option>
+            <option value=2> University </option>
+            <option value=3> High School </option>
+            <option value=5> No Education </option>
+            <option value=6> Illiterate </option>
+            <option value=4> Others </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Marital Status</label>
+          <select class="form-control" name="marriage" placeholder="Enter your marital status" required>
+            <option class="placeholder" selected disabled value="">Enter Marital status</option>
+            <option value=1>Married </option>
+            <option value=2>Single</option>
+            <option value=3>Other</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Age</label>
+          <input class="form-control" type="number" name="age" placeholder="Enter your age" min='0'/>
+          </div>
+          <div class="mb-3">
+        <label class="form-label"> Amount of Credit Given</label>
+          <input class="form-control" type="number" name="limit_bal" placeholder="Your Answer" min='0'/>
+          </div>
+        <div class="mb-3">
+          <label class="form-label">Repayment status in September, 2005</label>
+          <select class="form-control" name="pay_0" placeholder="Your answer" required>
+            <option class="placeholder" selected disabled value="">Your answer</option>
+            <option value=-1>Payed Duly </option>
+            <option value=1>1 Month Late</option>
+            <option value=2>2 Months Late</option>
+            <option value=3>3 Months Late</option>
+            <option value=4>4 Months Late</option>
+            <option value=5>5 Months Late</option>
+            <option value=6>6 Months Late</option>
+            <option value=7>7 Months Late</option>
+            <option value=8>8 Months Late</option>
+            <option value=9>9 or more Months Late</option>
+            <option value=-2>Unknown</option>
+          </select>
+          </div>
+        <div class="mb-3">
+          <label class="form-label">Repayment status in August, 2005</label>
+          <select class="form-control" name="pay_2" placeholder="Your answer" required>
+            <option class="placeholder" selected disabled value="">Your answer</option>
+            <option value=-1>Payed Duly </option>
+            <option value=1>1 Month Late</option>
+            <option value=2>2 Months Late</option>
+            <option value=3>3 Months Late</option>
+            <option value=4>4 Months Late</option>
+            <option value=5>5 Months Late</option>
+            <option value=6>6 Months Late</option>
+            <option value=7>7 Months Late</option>
+            <option value=8>8 Months Late</option>
+            <option value=9>9 or more Months Late</option>
+            <option value=-2>Unknown</option>
+          </select>
+          </div>
+        <div class="mb-3">
+          <label class="form-label">Repayment status in July, 2005</label>
+          <select class="form-control" name="pay_3" placeholder="Your answer" required>
+            <option class="placeholder" selected disabled value="">Your answer</option>
+            <option value=-1>Payed Duly </option>
+            <option value=1>1 Month Late</option>
+            <option value=2>2 Months Late</option>
+            <option value=3>3 Months Late</option>
+            <option value=4>4 Months Late</option>
+            <option value=5>5 Months Late</option>
+            <option value=6>6 Months Late</option>
+            <option value=7>7 Months Late</option>
+            <option value=8>8 Months Late</option>
+            <option value=9>9 or more Months Late</option>
+            <option value=-2>Unknown</option>
+          </select>
+          </div>
+        <div class="mb-3">
+          <label class="form-label">Repayment status in June, 2005</label>
+          <select class="form-control" name="pay_4" placeholder="Your answer" required>
+            <option class="placeholder" selected disabled value="">Your answer</option>
+            <option value=-1>Payed Duly </option>
+            <option value=1>1 Month Late</option>
+            <option value=2>2 Months Late</option>
+            <option value=3>3 Months Late</option>
+            <option value=4>4 Months Late</option>
+            <option value=5>5 Months Late</option>
+            <option value=6>6 Months Late</option>
+            <option value=7>7 Months Late</option>
+            <option value=8>8 Months Late</option>
+            <option value=9>9 or more Months Late</option>
+            <option value=-2>Unknown</option>
+          </select>
+          </div>
+        <div class="mb-3">
+          <label class="form-label">Repayment status in May, 2005</label>
+          <select class="form-control" name="pay_5" placeholder="Your answer" required>
+            <option class="placeholder" selected disabled value="">Your answer</option>
+            <option value=-1>Payed Duly </option>
+            <option value=1>1 Month Late</option>
+            <option value=2>2 Months Late</option>
+            <option value=3>3 Months Late</option>
+            <option value=4>4 Months Late</option>
+            <option value=5>5 Months Late</option>
+            <option value=6>6 Months Late</option>
+            <option value=7>7 Months Late</option>
+            <option value=8>8 Months Late</option>
+            <option value=9>9 or more Months Late</option>
+            <option value=-2>Unknown</option>
+          </select>
+          </div>
+        <div class="mb-3">
+          <label class="form-label">Repayment status in April, 2005</label>
+          <select class="form-control" name="pay_6" placeholder="Your answer" required>
+            <option class="placeholder" selected disabled value="">Your answer</option>
+            <option value=-1>Payed Duly </option>
+            <option value=1>1 Month Late</option>
+            <option value=2>2 Months Late</option>
+            <option value=3>3 Months Late</option>
+            <option value=4>4 Months Late</option>
+            <option value=5>5 Months Late</option>
+            <option value=6>6 Months Late</option>
+            <option value=7>7 Months Late</option>
+            <option value=8>8 Months Late</option>
+            <option value=9>9 or more Months Late</option>
+            <option value=-2>Unknown</option>
+          </select>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of bill statement in September, 2005</label>
+          <input class="form-control" type="number" name="bill_amt1" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of bill statement in August, 2005</label>
+          <input class="form-control" type="number" name="bill_amt2" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of bill statement in July, 2005</label>
+          <input class="form-control" type="number" name="bill_amt3" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of bill statement in June, 2005</label>
+          <input class="form-control" type="number" name="bill_amt4" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of bill statement in May, 2005</label>
+          <input class="form-control" type="number" name="bill_amt5" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of bill statement in April, 2005</label>
+          <input class="form-control" type="number" name="bill_amt6" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label">  Amount of previous payment in September, 2005</label>
+          <input class="form-control" type="number" name="pay_amt1" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of previous payment in August, 2005</label>
+          <input class="form-control" type="number" name="pay_amt2" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of previous payment in July, 2005</label>
+          <input class="form-control" type="number" name="pay_amt3" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of previous payment in June, 2005</label>
+          <input class="form-control" type="number" name="pay_amt4" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of previous payment in May, 2005</label>
+          <input class="form-control" type="number" name="pay_amt5" placeholder="Your Answer" min='0'/>
+        </div><div class="mb-3">
+          <label class="form-label"> Amount of previous payment in April, 2005</label>
+          <input class="form-control" type="number" name="pay_amt6" placeholder="Your Answer" min='0'/>
+        </div>
+        <div class="mb-3">
+          <input class="btn btn-primary" type="submit" value="Submit" required />
+        </div>
+      </form>
+      <h2>{{result}}</h2>
+    </div>
+  </body>
