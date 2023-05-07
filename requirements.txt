@@ -1,7 +1,6 @@
 pandas
 seaborn
 numpy
-sys
 logging
 os
 datetime
