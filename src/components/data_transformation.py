@@ -12,7 +12,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler
 from dataclasses import dataclass
 from sklearn.pipeline import Pipeline
-
+from sklearn.impute import SimpleImputer
 
 @dataclass
 
@@ -31,9 +31,10 @@ class DataTransformation:
             num_cols=['ID', 'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0',
        'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2',
        'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1',
-       'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6',
-       'default.payment.next.month']
+       'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6']
+            
             num_pipeline= Pipeline(steps=[
+                ("imputer",SimpleImputer(strategy='median')),
                 ("scaler",num_transformer)
             ])
 
@@ -85,6 +86,5 @@ class DataTransformation:
                 self.data_transformation_config.preprocessor_obj_file_path
             )
         
-
         except Exception as e:
             raise CustomException(e,sys)
