@@ -97,7 +97,7 @@ class ModelTrainer:
             )
 
             logging.info("Model saved as pickle file")
-            return best_score
+            return self.model_training_config.trained_model_file_path
 
 
         except Exception as e:
