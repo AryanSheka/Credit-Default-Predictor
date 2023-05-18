@@ -11,6 +11,12 @@ from data_transformation import DataTransformation
 from model_trainer import Model_training_config
 from model_trainer import ModelTrainer
 
+from data_transformation import DataTransformation
+from data_transformation import DataTransformationConfig
+from model_trainer import Model_training_config
+from model_trainer import ModelTrainer
+
+
 @dataclass
 class DataIngestionConfig:
     train_data_path: str = os.path.join('artifacts',"train.csv")
@@ -27,7 +33,7 @@ class DataIngestion:
         try:
             df= pd.read_csv('Notebook/UCI_Credit_Card.csv')
             logging.info("Data has been read as DataFrame")
-
+            df.drop(columns=['ID'],axis=1)
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
 
@@ -48,3 +54,5 @@ class DataIngestion:
 
         except Exception as e:
             raise CustomException(e,sys)
+
+

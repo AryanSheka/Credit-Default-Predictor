@@ -90,7 +90,7 @@ class ModelTrainer:
             best_model_name=list(report.keys())[list(report.values()).index(best_score)]
             best_model=models[best_model_name]
             logging.info("Best Model is found to be {}".format(best_model_name))
-
+            logging.info("The Accuracy of the model is {}".format(best_score))
             save_object(
                 file_path=self.model_training_config.trained_model_file_path,
                 obj=best_model
