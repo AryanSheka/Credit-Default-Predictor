@@ -50,3 +50,8 @@ def predict_datapoint():
         else:
             result="The Person is likely to have a default next month"
         return render_template('home.html',result=result)
+
+
+if __name__=="__main__":
+    # app.run(host="0.0.0.0",port=8080)        
+    app.run()
